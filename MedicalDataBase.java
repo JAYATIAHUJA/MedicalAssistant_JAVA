@@ -130,7 +130,7 @@ public class MedicalDataBase {
         boolean isFirstLine = true;
         while ((line = br.readLine()) != null) {
             if (isFirstLine) { isFirstLine = false; continue; }
-            String[] parts = line.split("\\|");
+            String[] parts = line.split(",");
             if (parts.length > 0) {
                 try {
                     int id = Integer.parseInt(parts[0].trim());
