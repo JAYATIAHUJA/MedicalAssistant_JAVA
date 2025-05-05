@@ -1,3 +1,2 @@
-patient id,patient name,symptoms list,possible disease
-111A,JAYATI,fever;cough;fatigue,Flu
-333A,JYOTI,headache;nausea;vomiting,Migraine
+patient id,patient name,symptoms list,disease 1,disease 2
+1,jayati,"sore throat,fever,loss of smell,cough,loss of taste,shortness of breath",Covid-19,Swine Flu
