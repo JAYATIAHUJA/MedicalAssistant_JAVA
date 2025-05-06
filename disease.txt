@@ -48,16 +48,12 @@ Malaria: fever, chills, headache, nausea, vomiting, muscle pain
 Jaundice: yellowing of the skin, fatigue, dark urine, abdominal pain
 Swine Flu: fever, chills, cough, sore throat, body ache
 Zika Virus: fever, rash, joint pain, red eyes, muscle pain
-
-# Female-Specific Diseases
 PCOS: irregular periods, weight gain, acne, excessive hair growth, infertility
 Endometriosis: pelvic pain, painful periods, infertility, fatigue, bloating
 Cervical Cancer: abnormal bleeding, pelvic pain, watery discharge, fatigue
 Ovarian Cyst: pelvic pain, bloating, irregular periods, nausea
 Menstrual Cramps: lower abdominal pain, fatigue, mood changes
 Menopause: hot flashes, night sweats, mood swings, irregular periods
-
-# Male-Specific Diseases
 Prostate Cancer: difficulty urinating, blood in urine, pelvic discomfort, erectile dysfunction
 Erectile Dysfunction: difficulty getting erection, reduced sexual desire
 Enlarged Prostate: frequent urination, weak urine stream, difficulty starting urination
