@@ -1,4 +1,3 @@
-// ... [unchanged imports]
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.*;
@@ -34,18 +33,17 @@ public class MedicalAssistantGUI extends JFrame {
     private void initializeGUI() {
         setTitle("Medical Assistant System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000, 800);
+        setSize(800, 600);
         setLocationRelativeTo(null);
 
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout(10, 10));
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        JPanel mainPanel = new JPanel(new BorderLayout(8, 8));
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
         JPanel patientPanel = createPatientPanel();
         mainPanel.add(patientPanel, BorderLayout.NORTH);
 
         JSplitPane centerPanel = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
-        centerPanel.setDividerLocation(300);
+        centerPanel.setDividerLocation(250);
         centerPanel.setResizeWeight(0.5);
 
         JPanel symptomsPanel = createSymptomsPanel();
@@ -67,7 +65,7 @@ public class MedicalAssistantGUI extends JFrame {
                 TitledBorder.TOP));
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.insets = new Insets(4, 4, 4, 4);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         gbc.gridx = 0;
@@ -75,8 +73,8 @@ public class MedicalAssistantGUI extends JFrame {
         panel.add(new JLabel("Patient ID:"), gbc);
 
         gbc.gridx = 1;
-        idField = new JTextField(20);
-        idField.setEditable(false);  // ID is auto-generated
+        idField = new JTextField(15);
+        idField.setEditable(false);
         try {
             int newId = db.getNextPatientId();
             idField.setText(String.valueOf(newId));
@@ -90,21 +88,21 @@ public class MedicalAssistantGUI extends JFrame {
         panel.add(new JLabel("Name:"), gbc);
 
         gbc.gridx = 1;
-        nameField = new JTextField(20);
+        nameField = new JTextField(15);
         panel.add(nameField, gbc);
 
         return panel;
     }
 
     private JPanel createSymptomsPanel() {
-        JPanel panel = new JPanel(new BorderLayout(5, 5));
+        JPanel panel = new JPanel(new BorderLayout(4, 4));
         panel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED),
                 "Symptoms",
                 TitledBorder.LEFT,
                 TitledBorder.TOP));
 
-        JPanel inputPanel = new JPanel(new BorderLayout(5, 5));
+        JPanel inputPanel = new JPanel(new BorderLayout(4, 4));
         symptomField = new JTextField();
         addSymptomButton = new JButton("Add Symptom");
         inputPanel.add(symptomField, BorderLayout.CENTER);
@@ -112,9 +110,9 @@ public class MedicalAssistantGUI extends JFrame {
 
         symptomsArea = new JTextArea();
         symptomsArea.setEditable(false);
-        symptomsArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        symptomsArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
         JScrollPane scrollPane = new JScrollPane(symptomsArea);
-        scrollPane.setPreferredSize(new Dimension(0, 200));
+        scrollPane.setPreferredSize(new Dimension(0, 120));
 
         panel.add(inputPanel, BorderLayout.NORTH);
         panel.add(scrollPane, BorderLayout.CENTER);
@@ -125,7 +123,7 @@ public class MedicalAssistantGUI extends JFrame {
     }
 
     private JPanel createResultsPanel() {
-        JPanel panel = new JPanel(new BorderLayout(5, 5));
+        JPanel panel = new JPanel(new BorderLayout(4, 4));
         panel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED),
                 "High Probability Diagnoses (>50%)",
@@ -140,17 +138,17 @@ public class MedicalAssistantGUI extends JFrame {
         };
 
         resultTable = new JTable(tableModel);
-        resultTable.setFont(new Font("Arial", Font.PLAIN, 14));
-        resultTable.setRowHeight(25);
-        resultTable.getColumnModel().getColumn(0).setPreferredWidth(200);
-        resultTable.getColumnModel().getColumn(1).setPreferredWidth(100);
-        resultTable.getColumnModel().getColumn(2).setPreferredWidth(400);
+        resultTable.setFont(new Font("Arial", Font.PLAIN, 12));
+        resultTable.setRowHeight(20);
+        resultTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        resultTable.getColumnModel().getColumn(1).setPreferredWidth(80);
+        resultTable.getColumnModel().getColumn(2).setPreferredWidth(300);
 
         JScrollPane scrollPane = new JScrollPane(resultTable);
-        scrollPane.setPreferredSize(new Dimension(0, 300));
+        scrollPane.setPreferredSize(new Dimension(0, 150));
 
         diagnoseButton = new JButton("Diagnose");
-        diagnoseButton.setFont(new Font("Arial", Font.BOLD, 14));
+        diagnoseButton.setFont(new Font("Arial", Font.BOLD, 12));
         diagnoseButton.addActionListener(e -> performDiagnosis());
 
         panel.add(scrollPane, BorderLayout.CENTER);
@@ -220,9 +218,9 @@ public class MedicalAssistantGUI extends JFrame {
                     String probability = String.format("%.1f%%", diagnosis.getProbability());
                     String matchingSymptoms = getMatchingSymptoms(diagnosis.getDisease());
                     tableModel.addRow(new Object[]{
-                        diagnosis.getDisease(),
-                        probability,
-                        matchingSymptoms
+                            diagnosis.getDisease(),
+                            probability,
+                            matchingSymptoms
                     });
                 }
                 db.savePatientRecord(patientId, name, diagnoses);
