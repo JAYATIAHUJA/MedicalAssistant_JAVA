@@ -2,4 +2,8 @@ patient id,patient name,symptoms list,disease 1,disease 2
 1,JAYATI,"vomiting,nausea,headache,sore throat,fever,cough",Migraine,Malaria
 2,Oshi,"fever,cough,sore throat,loss of smell,shortness of breath",Covid-19,Swine Flu
 3,JYOTI,"fever,loss of smell,cough,fatigue,sore throat",Flu,Mononucleosis
-4,KANISHK,"fatigue,dizziness,shortness of breath,pale skin",Anemia,
+4,KANISHK,"fatigue,dizziness,shortness of breath,pale skin",Anemia
+5,MOHIT,"vomiting,diarrhea,abdominal pain,nausea",Food Poisoning,Gastroenteritis
+6,URVASHI,"cough,shortness of breath,fatigue,dizziness,loss of smell,loss of taste",Anemia,Covid-19
+7,Priyanshu,"cough,sneezing,fever,diarrhea,rash,sweating,shortness of breath,bloody stool",Pneumonia,
+8,parth anand,"painful urination,headache,abdominal pain,constipation,fever,skin rashes,sore muscles,bloody stool,sore throat,runny nose",Common Cold,
